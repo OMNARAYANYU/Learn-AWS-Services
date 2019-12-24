@@ -1,0 +1,11 @@
+.coverage
+*.pyc
+*.cache/
+.idea/
+htmlcov/
+libs/
+publish/
+venv/
+aws_lambda_libs/
+lambda_configs/
+.pytest_cache/
