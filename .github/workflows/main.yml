@@ -11,8 +11,10 @@ jobs:
     - uses: actions/checkout@v1
       with:
        ref: learn_ec2
+      with:
+       ssh-private-key: ${{ secrets.my_ec2_access }}
     - name: Run a one-line script
-      run: echo Hello, world!
+       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
@@ -31,4 +33,5 @@ jobs:
          mkdir ec2_deploy
          cd ec2_deploy
          pwd
+         eval `ssh-agent`
          scp -r . ec2-user@ec2-34-201-21-165.compute-1.amazonaws.com:/home/ec2-user/
