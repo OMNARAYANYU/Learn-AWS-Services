@@ -26,4 +26,4 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
     - name: Access AWS environment
-       run: aws ec2 describe-instances --instance-ids i-0862747e3fd44eeb1
+      run: aws ec2 describe-instances --instance-ids i-0862747e3fd44eeb1
