@@ -32,4 +32,4 @@ jobs:
       run:  |
          ls -l
          mkdir ec2_deploy
-         cd ec2_deploy
+       # cd ec2_deploy
