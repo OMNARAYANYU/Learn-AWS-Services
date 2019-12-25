@@ -9,9 +9,27 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+      with:
+       ref: learn_ec2
+    - uses: webfactory/ssh-agent@v0.1.1
+      with: 
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY3 }}  
     - name: Run a one-line script
-      run: echo Hello, world!
+      run: echo Hello, world.!
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
-        echo test, and deploy your project.
+        echo test, and deploy your project
+        ls -l ~/.ssh
+        aws --version
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+    - name: Deploy application on the public ec2 instance
+      run:  |
+         ls -l
+         mkdir ec2_deploy
+       # cd ec2_deploy
